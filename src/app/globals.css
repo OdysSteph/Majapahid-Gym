@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* Palet: chalk (kapur lantai gym), ink (besi hitam), cobalt (aksen) */
+@theme inline {
+  --color-chalk: #F0F1EC;
+  --color-paper: #FAFAF7;
+  --color-ink: #15181C;
+  --color-iron: #2A3036;
+  --color-steel: #636B73;
+  --color-line: #D5D8D0;
+  --color-cobalt: #2742F5;
+  --color-cobalt-dark: #1B2FC4;
+  --color-ok: #1F7A4D;
+  --color-bad: #B3261E;
+  --font-display: var(--font-barlow), 'Arial Narrow', sans-serif;
+  --font-sans: var(--font-dm), system-ui, sans-serif;
+}
+
+html { background: #DADCD5; }
+body { background: var(--color-chalk); color: var(--color-ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+
+@layer components {
+  .h-display { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.01em; line-height: 0.95; }
+  .btn { @apply inline-flex h-12 w-full items-center justify-center rounded-md px-5 text-base font-semibold transition active:scale-[0.98] disabled:opacity-50; }
+  .btn-primary { @apply bg-cobalt text-white active:bg-cobalt-dark; }
+  .btn-dark { @apply bg-ink text-white; }
+  .btn-ghost { @apply border border-line bg-paper text-ink; }
+  .input { @apply h-12 w-full rounded-md border border-line bg-paper px-4 text-base outline-none focus:border-cobalt focus:ring-2 focus:ring-cobalt/20; }
+  .label { @apply mb-1.5 block text-sm font-medium text-iron; }
+  .panel { @apply rounded-md border border-line bg-paper; }
+  .err { @apply rounded-md bg-bad/10 px-3 py-2 text-sm text-bad; }
+  .okmsg { @apply rounded-md bg-ok/10 px-3 py-2 text-sm text-ok; }
+}
